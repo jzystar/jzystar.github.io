@@ -1,3 +1,536 @@
-<html>
-Hello World
-</html>
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>bdg-console</title>
+	<link type="text/css" href="./css/biz.css" rel="stylesheet" />
+	<link type="text/css" href="./css/main.css" rel="stylesheet" />
+    
+</head>
+
+    <body class=" locale-zh"><div class="header" id="header">
+<a class="logo" href="https://bce.baidu.com/index.html?from=console"></a>
+
+
+</ul>
+</div-->
+<ul class="nav">
+    <li class="nav-item nav-item-active" title="管理控制台">
+        <a class="nav-item-link">管理控制台</a>
+    </li>
+    <li class="nav-item nav-list" title="产品服务">
+        <a class="nav-item-link" href="javascript:void(0);">产品服务<span class="triangle-down"></span></a>
+        <div class="sub-nav service-list" id="serviceList">
+<table><tbody><tr>
+
+
+<td class="sub-nav-section">
+    <h3>test service group1</h3>
+    <ul>
+    <li>
+        <a class="inactive" title="测试服务1">
+            <i class="iconfont icon-bos"></i>
+            	测试服务1           
+        </a>
+    </li>
+    
+    <li>
+        <a class="inactive"  title="测试服务2">
+            <i class="iconfont icon-cds"></i>
+            	测试服务2  
+        </a>
+    </li>
+</td>
+
+
+
+</tr></tbody></table>
+
+</div>
+    </li>
+    <li class="nav-item nav-list">
+        <a class="nav-item-link" href="javascript:void(0);" title="文档与工具">文档与工具<span class="triangle-down"></span></a>
+        <ul class="sub-nav doc-sub">
+            <li title="入门指南">
+                <a href="https://bce.baidu.com/doc/StartGuide/index.html" target="_blank"><i class="iconfont icon-user-guide"></i>入门指南</a>
+            </li>
+            <li title="产品文档">
+                <a href="http://bce.baidu.com/doc/index.html" target="_blank"><i class="iconfont icon-doc"></i>产品文档</a>
+            </li>
+            <li title="开发者资源">
+                <a href="https://bce.baidu.com/doc/Developer/index.html" target="_blank"><i class="iconfont icon-sdk"></i>开发者资源</a>
+            </li>
+            <li title="技术支持">
+                <a href="https://bce.baidu.com/tech_support/index.html" target="_blank"><i class="iconfont icon-beian-doc"></i>技术支持</a>
+            </li>
+        </ul>
+    </li>
+</ul>
+<div class="lang-nav">
+    <a id="lang-zh" href="javascript:void(0);">中文</a>
+</div>
+
+<div class="msg-nav" title="站内信">
+    <a>站内信<span id="msgCount" class="count" style="display: inline;">0</span></a>
+</div>
+
+<div class="ticket-nav" title="工单">
+    工单<span id="ticketCount" class="count" style="display: none;"></span>
+    <div class="ticket-list" id="ticketList">
+<h2>我的工单</h2>
+
+<p class="ticket-list-foot">
+    <a target="_blank" class="ui-ctrl ui-button skin-create skin-create-button">新建工单</a>
+    <a target="_blank" class="more-link">查看更多</a>
+</p>
+
+</div>
+</div>
+
+<div class="header-select user-info">
+    <span class="username" id="username" title="testuser">testuser</span>
+    <ul class="select-items user-nav">
+               
+                <li title="财务中心"><a>财务中心</a></li>
+                
+                <li title="多用户访问控制"><a>多用户访问控制</a></li>
+               
+                <li title="用户信息"><a>用户信息</a></li>
+           
+                <li title="安全认证"><a>安全认证</a></li>
+
+        <li title="退出"><a href="localhost:8088/logout" id="logout">退出</a></li>
+    </ul>
+</div>
+
+<div class="search">
+    <div class="bg"></div>
+    <div class="content">
+        <form id="header-search-form" target="_blank">
+            <input type="text" id="header-search-input" name="q" class="input">
+            <input type="button" class="button" id="header-search-button" value="">
+        </form>
+    </div>
+</div>
+
+</div>
+    <div class="main-area">
+        <div id="main">
+<div class="index-overview">
+    
+    <div class="content-wrap">
+        
+        <div class="account-preview">
+            <div class="account-left">
+                <div class="inner-panel">
+                    <i class="avatar"></i>
+                    
+                    <a class="user-name-link" title="testuser">
+                        <span class="user-name">testuser</span>
+                    </a>
+                
+                    
+                    <div class="item cash-balance">
+                        <table>
+                            <tbody><tr>
+                                <td>
+                                    <span>现金余额：</span>
+                                    <span class="money">￥</span>
+                                    <a id="cash-label">999999999</a>
+                                    <a class="btn-recharge" >充值</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                
+                                <td id="debt-wrap">
+                                    <span>已欠费：</span>
+                                    <span class="money">￥</span>
+                                    <span id="debt-number"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>可用代金劵：</span>
+                                    <a id="coupon-num">0</a>
+                                </td>
+                                
+                            </tr>
+                        </tbody></table>
+                    </div>
+                </div>
+                <div class="bottom-panel">
+                    <a class="message">
+                      <i class="iconfont icon-ses"></i>消息<b id="mes-num">0</b>
+                    </a><a class="ticket">
+                      <i class="iconfont icon-ticket"></i>工单<b id="ticket-num">0</b>
+                    </a><a class="orderlist">
+                      <i class="iconfont icon-order-list"></i>订单管理
+                    </a>
+                </div>
+            </div>
+            <div class="account-middle">
+                <h2><span>账单预览</span>
+                    <esui-range-calendar data-ui-type="RangeCalendar" data-ui-id="rangeCalendar" class="range-calendar ui-ctrl ui-rangecalendar ui-rangecalendar-shortcut-item-selected" data-ui-mini-mode="3" data-ui-range="2014-05-01 00:00:00,2018-08-18 23:59:59" data-ctrl-id="rangeCalendar" id="ctrl-a-rangeCalendar" data-ctrl-view-context="a"><div class="ui-rangecalendar-text" id="ctrl-a-rangeCalendar-text">本月&nbsp;&nbsp;2016-08-01 - 2016-08-24</div>
+<div class="ui-rangecalendar-arrow"></div></esui-range-calendar>
+                </h2>
+                <div data-ui-type="EChart" data-ui-chart-type="pie" data-ui-id="accountPreviewChart" id="account_preview_charts" class="account-preview-charts ui-ctrl ui-echart" _echarts_instance_="1472028974872" data-ctrl-id="accountPreviewChart" data-ctrl-view-context="a" style="-webkit-tap-highlight-color: transparent; -webkit-user-select: none; cursor: default; background-color: rgba(0, 0, 0, 0);"><div style="position: relative; overflow: hidden; width: 321px; height: 205px;"><div data-zr-dom-id="bg" class="zr-element" style="position: absolute; left: 0px; top: 0px; width: 325px; height: 205px; -webkit-user-select: none;"></div><canvas width="321" height="205" data-zr-dom-id="0" class="zr-element" style="position: absolute; left: 0px; top: 0px; width: 321px; height: 205px; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas><canvas width="321" height="205" data-zr-dom-id="_zrender_hover_" class="zr-element" style="position: absolute; left: 0px; top: 0px; width: 321px; height: 205px; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas></div></div>
+
+                <div class="account-preview-summary">
+                    <p>消费金额：</p>
+                    <p><span class="money">￥</span>
+                        <label data-ui-type="Label" data-ui-id="costSummary" class="cost-summary ui-ctrl ui-label" id="ctrl-a-costSummary" data-ctrl-id="costSummary" data-ctrl-view-context="a">0.00</label>
+                    </p>
+                    <p class="account-detail">
+                        <a class="account-detail-button">
+                        <i class="iconfont icon-arrow-right"></i> 查看详情</a>
+                    </p>
+                </div>
+            </div>
+            <div class="account-right">
+                <div class="product account-section">
+                    <a class="product-name">
+                        <i class="iconfont icon-bcm"></i>
+                        <b>云监控</b>
+                    </a>
+                    <div class="product-spec" id="bcm-spec">
+                        <a class="spec-row">
+                            <span class="spec-key">
+                                <i class="iconfont icon-status normal"></i>正常
+                            </span>
+                            <span class="spec-value" id="bcmNormal">0</span>
+                        </a>
+                        <a class="spec-row">
+                            <span class="spec-key">
+                                <i class="iconfont icon-status warning"></i>数据不足
+                            </span>
+                            <span class="spec-value" id="bcmWarning">0</span>
+                        </a>
+                        <a class="spec-row">
+                            <span class="spec-key">
+                              <i class="iconfont icon-status error"></i>异常
+                            </span>
+                            <span class="spec-value" id="bcmError">0</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="product account-section last">
+                    <a class="product-name">
+                        <i class="iconfont icon-bss"></i>
+                        <b>云安全</b>
+                    </a>
+                    <a id="safe-level" class="high">
+                        <span>安全等级</span>
+                        <span id="safe-level-label">高</span>
+                        <div class="level-wrap">
+                            <div class="level-inner">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="pro-wrap" id="deactive">
+            <h2>
+                <i class="iconfont icon-waiting deactive-icon"></i><span>未开通服务</span>
+            </h2>
+            <div class="deactive-table-wrap">
+                
+                
+                <div class="product-row">
+                
+                    
+                    <div class="product">
+                    
+                        <h3>
+                            计算和网络
+                        </h3>
+                        <div>
+                            
+                            <div class="product-inner-row">
+                                <a href="https://console.bce.baidu.com/bcc/?_=1472028973957#/bcc/instance/create" class="un-product-name">
+                                    <i class="iconfont icon-bcc"></i>云服务器</a>
+                                <span class="product-links">
+                                    <a href="https://console.bce.baidu.com/bcc/?_=1472028973957#/bcc/instance/create"><i class="iconfont icon-buy"></i>购买</a>
+                                    
+                                    <span> | </span>
+                                    <a target="_blank" href="https://bce.baidu.com/product/bcc.html">详情</a>
+                                    
+                                </span>
+                            </div>
+                            
+                            <div class="product-inner-row">
+                                <a href="https://console.bce.baidu.com/blb/?_=1472028973957#/blb/create" class="un-product-name">
+                                    <i class="iconfont icon-blb"></i>负载均衡</a>
+                                <span class="product-links">
+                                    <a href="https://console.bce.baidu.com/blb/?_=1472028973957#/blb/create"><i class="iconfont icon-buy"></i>购买</a>
+                                    
+                                    <span> | </span>
+                                    <a target="_blank" href="https://bce.baidu.com/product/blb.html">详情</a>
+                                    
+                                </span>
+                            </div>
+                            
+                            <div class="product-inner-row">
+                                <a href="https://console.bce.baidu.com/eip/?_=1472028973957#/eip/instance/create" class="un-product-name">
+                                    <i class="iconfont icon-eip"></i>弹性公网IP</a>
+                                <span class="product-links">
+                                    <a href="https://console.bce.baidu.com/eip/?_=1472028973957#/eip/instance/create"><i class="iconfont icon-buy"></i>购买</a>
+                                    
+                                </span>
+                            </div>
+                            
+                            <div class="product-inner-row">
+                                <a href="https://console.bce.baidu.com/baepro/?_=1472028973957#/baepro/app/create" class="un-product-name">
+                                    <i class="iconfont icon-bae"></i>应用引擎BAE 专业版</a>
+                                <span class="product-links">
+                                    <a href="https://console.bce.baidu.com/baepro/?_=1472028973957#/baepro/app/create"><i class="iconfont icon-buy"></i>购买</a>
+                                    
+                                    <span> | </span>
+                                    <a target="_blank" href="https://bce.baidu.com/product/bae.html">详情</a>
+                                    
+                                </span>
+                            </div>
+                            
+                            <div class="product-inner-row">
+                                <a href="https://console.bce.baidu.com/bae/?_=1472028973957#/bae/env/create" class="un-product-name">
+                                    <i class="iconfont icon-bae"></i>应用引擎BAE 基础版</a>
+                                <span class="product-links">
+                                    <a href="https://console.bce.baidu.com/bae/?_=1472028973957#/bae/env/create"><i class="iconfont icon-buy"></i>购买</a>
+                                    
+                                    <span> | </span>
+                                    <a target="_blank" href="https://bce.baidu.com/product/bae.html">详情</a>
+                                    
+                                </span>
+                            </div>
+                            
+                        </div>
+                    </div>
+                
+                
+                
+                    
+                    <div class="product">
+                    
+                        <h3>
+                            存储和CDN
+                        </h3>
+                        <div>
+                            
+                            <div class="product-inner-row">
+                                <a href="https://console.bce.baidu.com/bos/?_=1472028973957#/bos/order" class="un-product-name">
+                                    <i class="iconfont icon-bos"></i>对象存储</a>
+                                <span class="product-links">
+                                    <a href="https://console.bce.baidu.com/bos/?_=1472028973957#/bos/order"><i class="iconfont icon-buy"></i>开通</a>
+                                    
+                                    <span> | </span>
+                                    <a target="_blank" href="https://bce.baidu.com/product/bos.html">详情</a>
+                                    
+                                </span>
+                            </div>
+                            
+                            <div class="product-inner-row">
+                                <a href="https://console.bce.baidu.com/bcc/?_=1472028973957#/bcc/cds/create" class="un-product-name">
+                                    <i class="iconfont icon-cds"></i>云磁盘</a>
+                                <span class="product-links">
+                                    <a href="https://console.bce.baidu.com/bcc/?_=1472028973957#/bcc/cds/create"><i class="iconfont icon-buy"></i>购买</a>
+                                    
+                                    <span> | </span>
+                                    <a target="_blank" href="https://bce.baidu.com/product/cds.html">详情</a>
+                                    
+                                </span>
+                            </div>
+                            
+                            <div class="product-inner-row">
+                                <a href="https://console.bce.baidu.com/cdn/?_=1472028973957#/cdn/order" class="un-product-name">
+                                    <i class="iconfont icon-cdn"></i>内容分发网络</a>
+                                <span class="product-links">
+                                    <a href="https://console.bce.baidu.com/cdn/?_=1472028973957#/cdn/order"><i class="iconfont icon-buy"></i>开通</a>
+                                    
+                                    <span> | </span>
+                                    <a target="_blank" href="https://bce.baidu.com/product/cdn.html">详情</a>
+                                    
+                                </span>
+                            </div>
+                            
+                        </div>
+                    </div>
+                
+                
+                
+                    
+                    <div class="product">
+                    
+                        <h3>
+                            数据库
+                        </h3>
+                        <div>
+                            
+                            <div class="product-inner-row">
+                                <a href="https://console.bce.baidu.com/rds/?_=1472028973957#/rds/create" class="un-product-name">
+                                    <i class="iconfont icon-rds"></i>关系型数据库</a>
+                                <span class="product-links">
+                                    <a href="https://console.bce.baidu.com/rds/?_=1472028973957#/rds/create"><i class="iconfont icon-buy"></i>购买</a>
+                                    
+                                    <span> | </span>
+                                    <a target="_blank" href="https://bce.baidu.com/product/rds.html">详情</a>
+                                    
+                                </span>
+                            </div>
+                            
+                            <div class="product-inner-row">
+                                <a href="https://console.bce.baidu.com/scs/?_=1472028973957#/scs/instance/create" class="un-product-name">
+                                    <i class="iconfont icon-scs"></i>简单缓存服务</a>
+                                <span class="product-links">
+                                    <a href="https://console.bce.baidu.com/scs/?_=1472028973957#/scs/instance/create"><i class="iconfont icon-buy"></i>购买</a>
+                                    
+                                    <span> | </span>
+                                    <a target="_blank" href="https://bce.baidu.com/product/scs.html">详情</a>
+                                    
+                                </span>
+                            </div>
+                            
+                        </div>
+                    </div>
+                
+                </div>
+                
+                
+                
+                <div class="product-row">
+                
+                    
+                    <div class="product">
+                    
+                        <h3>
+                            数据分析
+                        </h3>
+                        <div>
+                            
+                            <div class="product-inner-row">
+                                <a href="https://console.bce.baidu.com/bmr/?_=1472028973957#/bmr/cluster/create" class="un-product-name">
+                                    <i class="iconfont icon-bmr"></i>百度MapReduce</a>
+                                <span class="product-links">
+                                    <a href="https://console.bce.baidu.com/bmr/?_=1472028973957#/bmr/cluster/create"><i class="iconfont icon-buy"></i>购买</a>
+                                    
+                                    <span> | </span>
+                                    <a target="_blank" href="https://bce.baidu.com/product/bmr.html">详情</a>
+                                    
+                                </span>
+                            </div>
+                            
+                            <div class="product-inner-row">
+                                <a href="https://console.bce.baidu.com/palo/?_=1472028973957#/palo/create" class="un-product-name">
+                                    <i class="iconfont icon-palo"></i>百度OLAP引擎</a>
+                                <span class="product-links">
+                                    <a href="https://console.bce.baidu.com/palo/?_=1472028973957#/palo/create"><i class="iconfont icon-buy"></i>购买</a>
+                                    
+                                    <span> | </span>
+                                    <a target="_blank" href="https://bce.baidu.com/product/palo.html">详情</a>
+                                    
+                                </span>
+                            </div>
+                            
+                        </div>
+                    </div>
+                
+                
+                
+                    
+                    <div class="product">
+                    
+                        <h3>
+                            智能多媒体服务
+                        </h3>
+                        <div>
+                            
+                            <div class="product-inner-row">
+                                <a href="https://console.bce.baidu.com/lss/?_=1472028973957#/lss/v2/session/create" class="un-product-name">
+                                    <i class="iconfont icon-lss"></i>音视频直播</a>
+                                <span class="product-links">
+                                    <a href="https://console.bce.baidu.com/lss/?_=1472028973957#/lss/v2/session/create"><i class="iconfont icon-buy"></i>开通</a>
+                                    
+                                    <span> | </span>
+                                    <a target="_blank" href="https://bce.baidu.com/product/lss.html">详情</a>
+                                    
+                                </span>
+                            </div>
+                            
+                        </div>
+                    </div>
+                
+                
+                
+                    
+                    <div class="product">
+                    
+                        <h3>
+                            应用服务
+                        </h3>
+                        <div>
+                            
+                            <div class="product-inner-row">
+                                <a href="https://console.bce.baidu.com/ses/?_=1472028973957#/ses/order" class="un-product-name">
+                                    <i class="iconfont icon-ses"></i>简单邮件服务</a>
+                                <span class="product-links">
+                                    <a href="https://console.bce.baidu.com/ses/?_=1472028973957#/ses/order"><i class="iconfont icon-buy"></i>开通</a>
+                                    
+                                    <span> | </span>
+                                    <a target="_blank" href="https://bce.baidu.com/product/ses.html">详情</a>
+                                    
+                                </span>
+                            </div>
+                            
+                            <div class="product-inner-row">
+                                <a href="https://console.bce.baidu.com/sms/?_=1472028973957#/sms/order" class="un-product-name">
+                                    <i class="iconfont icon-sms"></i>简单消息服务</a>
+                                <span class="product-links">
+                                    <a href="https://console.bce.baidu.com/sms/?_=1472028973957#/sms/order"><i class="iconfont icon-buy"></i>开通</a>
+                                    
+                                    <span> | </span>
+                                    <a target="_blank" href="https://bce.baidu.com/product/sms.html">详情</a>
+                                    
+                                </span>
+                            </div>
+                            
+                            <div class="product-inner-row">
+                                <a href="https://console.bce.baidu.com/qss/?_=1472028973957" class="un-product-name">
+                                    <i class="iconfont icon-qss"></i>问卷调研服务</a>
+                                <span class="product-links">
+                                    <a href="https://console.bce.baidu.com/qss/?_=1472028973957"><i class="iconfont icon-buy"></i>购买</a>
+                                    
+                                    <span> | </span>
+                                    <a target="_blank" href="https://bce.baidu.com/product/qss.html">详情</a>
+                                    
+                                </span>
+                            </div>
+                            
+                            <div class="product-inner-row">
+                                <a href="https://console.bce.baidu.com/mat/?_=1472028973957" class="un-product-name">
+                                    <i class="iconfont icon-mat"></i>移动App测试服务</a>
+                                <span class="product-links">
+                                    <a href="https://console.bce.baidu.com/mat/?_=1472028973957"><i class="iconfont icon-buy"></i>购买</a>
+                                    
+                                    <span> | </span>
+                                    <a target="_blank" href="https://bce.baidu.com/product/mat.html">详情</a>
+                                    
+                                </span>
+                            </div>
+                            
+                        </div>
+                    </div>
+                
+                </div>
+                
+                
+            </div>
+        
+    </div>
+</div>
+
+
+
+</div></div>
+    </div>
+    </div></div></body></html>
